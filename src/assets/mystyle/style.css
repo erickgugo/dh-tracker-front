@@ -1,0 +1,28 @@
+.min-h-screen {
+    min-height: 100vh !important;
+}
+
+@media only screen and (max-width: 780px) {
+    .min-h-screen {
+        min-height: 80vh !important;
+    }
+    .card {
+        padding: 1rem 1rem !important;
+    }
+}
+
+/**
+Cambia el puntero del mapa a flecha
+ */
+.leaflet-grab {
+    cursor: default !important;
+}
+
+/**
+   Evita que el control del zoom se sobreponga
+ */
+.leaflet-top, .leaflet-bottom {
+    position: absolute !important;
+    z-index: auto !important;;
+    pointer-events: none !important;;
+}

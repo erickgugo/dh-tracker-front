@@ -1,0 +1,55 @@
+<div class="layout-topbar">
+    <a class="layout-topbar-logo" routerLink="">
+        <!--        <img src="assets/layout/images/{{layoutService.config.colorScheme === 'light' ? 'logo-dark' : 'logo-white'}}.svg" alt="logo">-->
+        <span>SISTEMA DE TRACKER</span>
+    </a>
+
+    <button #menubutton class="p-link layout-menu-button layout-topbar-button" (click)="layoutService.onMenuToggle()">
+        <i class="pi pi-bars"></i>
+    </button>
+
+    <button #topbarmenubutton class="p-link layout-topbar-menu-button layout-topbar-button"
+            (click)="layoutService.showProfileSidebar()">
+        <i class="pi pi-ellipsis-v"></i>
+    </button>
+
+    <div class="w-full hidden lg:block">
+        <div class="flex justify-content-end align-items-center">
+            <i class="pi pi-user pr-2" style="font-size: 1.5rem"></i>
+            {{ user.nombreCompleto | uppercase}}
+        </div>
+    </div>
+    <div #topbarmenu class="layout-topbar-menu"
+         [ngClass]="{'layout-topbar-menu-mobile-active': layoutService.state.profileSidebarVisible}">
+        <!--        <button class="p-link layout-topbar-button">-->
+        <!--            <i class="pi pi-calendar"></i>-->
+        <!--            <span>Calendar</span>-->
+        <!--        </button>-->
+        <!--        <button class="p-link layout-topbar-button">-->
+        <!--            <i class="pi pi-user"></i>-->
+        <!--            <span>Profile</span>-->
+        <!--        </button>-->
+        <!--        <button class="p-link layout-topbar-button" [routerLink]="'/documentation'">-->
+        <!--            <i class="pi pi-cog"></i>-->
+        <!--            <span>Settings</span>-->
+        <!--        </button>-->
+        <button class="p-link layout-topbar-button" (click)="display=true">
+            <i class="pi pi-power-off"></i>
+            <span>Salir</span>
+        </button>
+        <p-dialog header="Confirmación" [(visible)]="display" [modal]="true" showEffect="fade"
+                  [style]="{width: '300px'}">
+            <p class="line-height-1 m-0 text-left">
+                ¿Esta seguro de cerrar su session?
+            </p>
+            <div class="flex justify-content-end flex-wrap card-container pt-5">
+                <button pButton label="Confirmar" icon="pi pi-check" class="mr-2"
+                        (click)="logout()">
+                </button>
+                <button pButton label="Cancelar" icon="pi pi-times" (click)="display=false"
+                        class="p-button-secondary"></button>
+            </div>
+        </p-dialog>
+    </div>
+</div>
+

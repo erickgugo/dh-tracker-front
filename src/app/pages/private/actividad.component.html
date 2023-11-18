@@ -1,0 +1,31 @@
+<div class="grid">
+    <div class="col-12">
+        <div class="card">
+            <h5>ADMINISTRACION DE ACTIVIDADES</h5>
+
+            <p-button label="Crear" icon="pi pi-plus" class=""/>
+            <p-table [value]="actividades" responsiveLayout="scroll">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="min-width: 8rem;">Id</th>
+                        <th style="min-width: 15rem;">Descripcion</th>
+                        <th style="min-width: 12rem;">Start</th>
+                        <th style="min-width: 12rem;">Stop</th>
+                        <th></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-act let-i="rowIndex">
+                    <tr>
+                        <td>{{act.id}}</td>
+                        <td>{{act.descripsion}}</td>
+                        <td>{{act.fechaIni | date: 'dd/MM/yyyy HH:mm'}}</td>
+                        <td>{{act.fechaFin | date: 'dd/MM/yyyy HH:mm'}}</td>
+                        <td class="align-content-center"><p-button label="Editar" icon="pi pi-pencil"/></td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>
+
+
